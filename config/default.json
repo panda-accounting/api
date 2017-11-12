@@ -5,5 +5,30 @@
   "paginate": {
     "default": 10,
     "max": 50
+  },
+  "mongodb": "mongodb://localhost:27017/panda_accounting_backend",
+  "authentication": {
+    "secret": "f8100ce6d39a8667e3c1f338b70e98bff81f094ad4cc46ed42590cb670b768a028cc64fddd139539816c0cdb38e92dd2f785abea696066b09cf9108ffc03abc39ac490bd28d3c520a00e3cb75d59f53f4cfc4c4ebab508fb7306e23f7f560b9dd0b3f5c3a70069b319ce2f9cc7ebf656a4fa351594f4ef2a322f13f5a0aa64f3270eea8231a968f9824b9b1f6e9bfc7244b9af00b10a7a6c2bc1712e2d25a286b55264d75d7c79ea9c53f36f14c197796b3a4ef71e35d16b043886d55652bed780f3b00591d50ee5dd4902286797a7aada5308490460de4e795333ac75fc963663c972625440230c17ac2d3578ef28ab82d85de25d1cedb6f9d8edae00f36287",
+    "strategies": [
+      "jwt",
+      "local"
+    ],
+    "path": "/authentication",
+    "service": "users",
+    "jwt": {
+      "header": {
+        "typ": "access"
+      },
+      "audience": "https://yourdomain.com",
+      "subject": "anonymous",
+      "issuer": "feathers",
+      "algorithm": "HS256",
+      "expiresIn": "1d"
+    },
+    "local": {
+      "entity": "user",
+      "usernameField": "email",
+      "passwordField": "password"
+    }
   }
 }

@@ -1,5 +1,5 @@
 // Initializes the `vault` service on path `/vault`
-const createService = require('feathers-mongodb');
+const createService = require('../../feathers-mongodb');
 const hooks = require('./vault.hooks');
 const filters = require('./vault.filters');
 

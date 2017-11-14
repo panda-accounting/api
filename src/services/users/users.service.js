@@ -1,5 +1,5 @@
 // Initializes the `users` service on path `/users`
-const createService = require('feathers-mongodb');
+const createService = require('../../feathers-mongodb');
 const hooks = require('./users.hooks');
 const filters = require('./users.filters');
 
@@ -17,6 +17,7 @@ module.exports = function () {
 
   mongoClient.then(db => {
     service.Model = db.collection('users');
+    service.Model.ensureIndex('email', { unique: true });
   });
 
   service.hooks(hooks);
